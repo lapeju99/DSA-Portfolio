@@ -53,7 +53,7 @@ group by Customer_Name
 order by TotalSales asc
 
 
- Question 5.
+ Question 5
 
 KMS incurred the most shipping cost using which shipping method?
 
@@ -61,6 +61,8 @@ Select top 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
 from [dbo].[KMS Sql Case Study]
 group by Ship_Mode
 order by TotalShipping_Cost desc
+
+Delivery Truck incurred the most shipping cost.
 
 question 6:
 6. Who are the most valuable customers, and what products or services do they typically 
@@ -82,7 +84,7 @@ GROUP BY [Customer_Name], [Product_Name]
 ORDER BY Total_Sales DESC;
 
 
-Question 7:
+Question 7
 
 Which small business customer had the highest sales?
 
@@ -134,3 +136,4 @@ FROM [dbo].[KMS Sql Case Study]
 GROUP BY [Order_Priority], [Ship_Mode]
 ORDER BY [Order_Priority], [Ship_Mode] DESC;
 
+Idon't think the company spent apprioipriately because customers take proirity very important and could impact their next buy.
