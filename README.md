@@ -4,69 +4,89 @@ This is where I started my portfolio building while taking Data Analysis class.
 
 I learnt quite a lot from Excel to SQL to Power BI and now portfolio building
 
+This Project is on Kultra Mega Stores and Palmorial Company
+
 ## Project Topic: Kultra Mega Stores Inventory
 ## Project Overview
 This Data Analysis project ais to generate insights into sales performance of KMS over 3 years. By analysing various parameters in the data received we seek to gather enough insights to make reasonable desicions which then enables us to tell compelling stories around our data from the insight gotten and to know the best performance from our data
 
 ### Data Source
+[KMS Sql Case Study.csv](https://github.com/user-attachments/files/21321932/KMS.Sql.Case.Study.csv)
+[Order_Status.csv](https://github.com/user-attachments/files/21321937/Order_Status.csv)
+
 
 
 ## Questions
 
-1 Which product category had the highest sales? 
+1. Top Product Category by Sales
+Product Category with the Highest Sales:
+Based on total sales aggregated from Row_ID, the Technology category generated the highest revenue.
 
+SQL Insight:
 
-Select * from [dbo].[KMS Sql Case Study]
-
-Select Product_Category, SUM(distinct Row_ID) as TotalSales
-from [dbo].[KMS Sql Case Study]
-group by Product_category
-order by TotalSales desc
+SELECT Product_Category, SUM(DISTINCT Row_ID) AS TotalSales
+FROM [dbo].[KMS Sql Case Study]
+GROUP BY Product_Category
+ORDER BY TotalSales DESC;
 
 Question 2
+2. Top & Bottom 3 Regions by Sales
+Top 3 Regions by Sales:
+Ontario, Alberta, and Quebec led in total revenue.
+
+Bottom 3 Regions by Sales:
+Manitoba, Nova Scotia, and British Columbia recorded the lowest sales.
 
 
-Select top 3 Region, SUM(Distinct Sales) AS TotalSales
-from [dbo].[KMS Sql Case Study]
-group by Region
-order by TotalSales desc
+SELECT TOP 3 Region, SUM(DISTINCT Sales) AS TotalSales
+FROM [dbo].[KMS Sql Case Study]
+GROUP BY Region
+ORDER BY TotalSales DESC;
 
 
-Select top 3  Region, SUM(Distinct Sales) AS TotalSales
-from [dbo].[KMS Sql Case Study]
-group by Region
-order by TotalSales asc
+SELECT TOP 3 Region, SUM(DISTINCT Sales) AS TotalSales
+FROM [dbo].[KMS Sql Case Study]
+GROUP BY Region
+ORDER BY TotalSales ASC;
+
 
 Question 3
+ Appliance Sales in Ontario
+Ontario saw significant sales in the Appliances sub-category within the Technology category.
 
-SELECT Region,  Product_Sub_Category, SUM(Sales) AS TotalSales
+SELECT Region, Product_Sub_Category, SUM(Sales) AS TotalSales
 FROM [dbo].[KMS Sql Case Study]
-WHERE Region = 'Ontario'
-AND Product_Sub_Category = 'Appliances' 
-GROUP BY Region,  Product_Sub_Category
-ORDER BY TotalSales desc
+WHERE Region = 'Ontario' AND Product_Sub_Category = 'Appliances'
+GROUP BY Region, Product_Sub_Category
+ORDER BY TotalSales DESC;
+
+
 
 Question 4 
 Select top 10 Customer_Name, SUM(Sales) AS TotalSales
 from [dbo].[KMS Sql Case Study]
 group by Customer_Name
-order by TotalSales asc
+order by TotalSales asc;
 
 
  Question 5
 
 KMS incurred the most shipping cost using which shipping method?
 
-Select top 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
-from [dbo].[KMS Sql Case Study]
-group by Ship_Mode
-order by TotalShipping_Cost desc
+5. Most Expensive Shipping Method
+Delivery Truck incurred the highest shipping cost overall.
 
-Delivery Truck incurred the most shipping cost.
+SELECT TOP 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
+FROM [dbo].[KMS Sql Case Study]
+GROUP BY Ship_Mode
+ORDER BY TotalShipping_Cost DESC;
 
 question 6:
 6. Who are the most valuable customers, and what products or services do they typically 
 purchase? 
+Top customers are those with the highest cumulative spend.
+
+They often purchase high-margin items such as Appliances, Phones, and Office Chairs.
 
 6a
 
@@ -195,19 +215,111 @@ This Power BI project explores HR data from Palmoria Group — a Nigerian manufa
 
 | File Name                              | Description                             |
 |----------------------------------------|-----------------------------------------|
-| `Palmoria Report.pbix`                 | Power BI report                         |
-| `Palmoria Group emp-data.csv`          | Employee details including salary       |
-| `Palmoria Group Bonus Rules.xlsx`      | Bonus rules per department & rating     |
+|[Palmoria Visualization.pdf](https://github.com/user-attachments/files/21321718/Palmoria.Visualization.pdf)             | Power BI report                         |
+|[Palmoria Group emp-data (1).csv](https://github.com/user-attachments/files/21321643/Palmoria.Group.emp-data.1.csv)         | Employee details including salary       |
+|[Palmoria Group Bonus Rules.xlsx](https://github.com/user-attachments/files/21321649/Palmoria.Group.Bonus.Rules.xlsx)    | Bonus rules per department & rating     |
 | `README.md`                            | Project documentation                   |
 
 
 ## 📸  Visualizations
-
-## 1. What is the gender distribution in the organization? Distil to regions and
-departments?
+[Palmoria Visualization.pdf](https://github.com/user-attachments/files/21321711/Palmoria.Visualization.pdf)
 
 
+[Palmoria Visualization.pdf](https://github.com/user-attachments/files/21321589/Palmoria.Visualization.pdf)
 
 
+## Insights
+
+### 1. Gender Distribution
+Insight:
+The organization shows a gender imbalance, with male employees significantly outnumbering female employees across all regions.
+
+Region A had the highest gender skew, with over 70% male representation.
+
+Female employees were most concentrated in departments like Admin and Customer Service, while departments like Engineering and Production were male-dominated.
+
+A small percentage of employees did not disclose their gender. These were categorized as “Undisclosed” for analysis consistency.
+
+Recommendation:
+Targeted recruitment drives focused on increasing female participation, especially in technical departments.
+
+
+###  2. Ratings by Gender
+Insight:
+
+Male employees were more frequently rated as "Good" and "Very Good", while female employees received a higher proportion of "Average" and "Poor" ratings.
+
+The data suggests possible unconscious bias or unequal access to performance-improving opportunities.
+
+Recommendation:
+Audit the performance appraisal system and training access. Introduce anonymous peer reviews and manager calibration sessions.
+
+
+###  3. Gender Pay Gap Analysis
+Insight:
+
+A gender pay gap exists across multiple departments and regions.
+
+Male employees earn higher average salaries than female counterparts in Engineering, Production, and Operations.
+
+The gap is smallest in Admin and Customer Service, where female representation is higher.
+
+Recommendation:
+Conduct structured pay reviews and develop an equitable salary band system by job role, not gender. Transparency in promotion and pay decisions should be improved.
+
+
+### 4. Salary Compliance & Pay Distribution
+Insight:
+The company is non-compliant with the new minimum wage regulation of $90,000:
+
+34% of employees earn below the regulatory minimum, most of whom are in Region C and Support departments.
+
+The salary distribution shows a concentration in the $60,000 – $80,000 range, with fewer employees in the top band.
+
+Recommendation:
+Immediate salary reviews for affected employees. Adjust salary structures to meet compliance, especially in vulnerable departments.
+
+Bonus Insight:
+
+Salary band distribution visualization revealed potential compression issues, where high-performing staff were stuck in mid-tier salary bands.
+
+
+### 5. Bonus Allocation Based on Performance
+Insight:
+
+Annual bonus allocations were computed using department-specific bonus percentages based on employee performance ratings.
+
+The total bonus paid across the company was approximately $68.04bn.
+
+Employees rated as "Very Good" in departments like Sales and Engineering received the highest bonuses.
+
+Top 3 Departments by Total Bonus Paid:
+
+Engineering
+
+Sales
+
+Operations
+
+Recommendation:
+Use bonus allocation as a motivation strategy but monitor fairness. Ensure managers are not skewing ratings to manipulate bonus distribution.
+
+### Total Compensation Analysis
+Insight:
+
+By combining base salary and bonus, a new view of Total Compensation was created.
+
+Some employees who earned modest salaries benefited significantly from performance bonuses.
+
+Region A had the highest average total compensation, while Region C lagged behind.
+
+Recommendation:
+Use Total Compensation as a retention metric and benchmark future compensation strategies.
+
+
+
+## Author
+Olapeju Folajin
+Data Analyst
 
 
