@@ -16,6 +16,22 @@ This Data Analysis project ais to generate insights into sales performance of KM
 
 
 
+## 💻 Tools & Technologies
+
+- **SQL Server Management Studio (SSMS)** (Data querying, transformation and Analysis)
+- **GitHub** (project hosting)
+
+
+
+  ## 📁 Files Included
+
+| File Name                              | Description                             |
+|----------------------------------------|-----------------------------------------|
+[KMS Sql Case Study.csv](https://github.com/user-attachments/files/21323353/KMS.Sql.Case.Study.csv) |Data for KMS including sales|
+[Order_Status.csv](https://github.com/user-attachments/files/21323358/Order_Status.csv) | Order status for items|
+
+
+
 ## Questions
 
 ## 1. Top Product Category by Sales
@@ -34,10 +50,10 @@ ORDER BY TotalSales DESC;
 ## Question 2  Top & Bottom 3 Regions by Sales
 
 ### Top 3 Regions by Sales:
-Ontario, Alberta, and Quebec led in total revenue.
+West, Ontario, and Prairie led in total revenue.
 
 ### Bottom 3 Regions by Sales:
-Manitoba, Nova Scotia, and British Columbia recorded the lowest sales.
+Nunavut, NorthWest Territories, and Yukon recorded the lowest sales.
 
 
 SELECT TOP 3 Region, SUM(DISTINCT Sales) AS TotalSales
@@ -55,6 +71,7 @@ ORDER BY TotalSales ASC;
 ## Question 3
  Appliance Sales in Ontario
 Ontario saw significant sales in the Appliances sub-category within the Technology category.
+### Total sales was 202346.84
 
 SELECT Region, Product_Sub_Category, SUM(Sales) AS TotalSales
 FROM [dbo].[KMS Sql Case Study]
@@ -65,6 +82,9 @@ ORDER BY TotalSales DESC;
 
 
 ## Question 4 
+Advise the management of KMS on what to do to increase the revenue from the bottom
+10 customers
+
 Select top 10 Customer_Name, SUM(Sales) AS TotalSales
 from [dbo].[KMS Sql Case Study]
 group by Customer_Name
@@ -78,7 +98,7 @@ order by TotalSales asc;
 KMS incurred the most shipping cost using which shipping method?
 
 Most Expensive Shipping Method
-## Delivery Truck incurred the highest shipping cost overall.
+Delivery Truck incurred the highest shipping cost overall at $51,972. 
 
 SELECT TOP 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
 FROM [dbo].[KMS Sql Case Study]
@@ -89,8 +109,7 @@ ORDER BY TotalShipping_Cost DESC;
 Who are the most valuable customers, and what products or services do they typically 
 purchase? 
 Top customers are those with the highest cumulative spend.
-
-They often purchase high-margin items such as Appliances, Phones, and Office Chairs.
+They are Emily Phan, Deborah Brumfield, Dennis Kane
 
 6a
 
@@ -112,6 +131,8 @@ ORDER BY Total_Sales DESC;
 
 Which small business customer had the highest sales?
 
+Dennis Kane made the highest sales among small business customers
+
 SELECT TOP 1 Customer_Segment, Customer_Name, SUM(Sales) AS TotalSales
 FROM [dbo].[KMS Sql Case Study]
 WHERE Customer_Segment = 'Small Business'
@@ -122,6 +143,8 @@ ORDER BY TotalSales desc
 ## Question 8:
 
 Which Corporate Customer placed the most number of orders in 2009 – 2012?
+
+Adam Hart placed the most orders between 2009-2012.
 
 SELECT TOP 1 Customer_Name, COUNT(DISTINCT Order_ID) AS Number_of_Orders
 FROM [dbo].[KMS Sql Case Study]
@@ -134,6 +157,8 @@ ORDER BY Number_of_Orders DESC;
 ## Question 9:
 Which consumer customer was the most profitable one?
 
+Emily Phan was the most profitable customer.
+
 SELECT TOP 1
 [Customer_Name], SUM(Profit) AS Total_Profit
 FROM [dbo].[KMS Sql Case Study]
@@ -143,6 +168,8 @@ ORDER BY Total_Profit DESC;
 
 ## Question 10:
 Which customer returned items, and what segment do they belong to?
+
+Customers returned items in all segments but most especially in corporate and small business
 
 SELECT DISTINCT TOP 10 o.[Order_ID], o.[Customer_Name], o.[Customer_Segment]
 FROM [dbo].[KMS Sql Case Study] o
