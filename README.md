@@ -85,7 +85,7 @@ ORDER BY TotalSales DESC;
 Advise the management of KMS on what to do to increase the revenue from the bottom
 10 customers
 
-Answer: 
+### Answer: 
 1. They should buy in large quantities to make more profits
 2. The Shipping cost is high for thee customers and should therefore use cheaper shipping options
 3. They should avoid high discounts on low- quality orders.
@@ -103,7 +103,7 @@ order by TotalSales asc;
 KMS incurred the most shipping cost using which shipping method?
 
 Most Expensive Shipping Method
-Delivery Truck incurred the highest shipping cost overall at $51,972. 
+### Delivery Truck incurred the highest shipping cost overall at $51,972. 
 
 SELECT TOP 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
 FROM [dbo].[KMS Sql Case Study]
@@ -114,7 +114,7 @@ ORDER BY TotalShipping_Cost DESC;
 Who are the most valuable customers, and what products or services do they typically 
 purchase? 
 Top customers are those with the highest cumulative spend.
-They are Emily Phan, Deborah Brumfield, Dennis Kane
+### They are Emily Phan, Deborah Brumfield, Dennis Kane
 
 6a
 
@@ -136,7 +136,7 @@ ORDER BY Total_Sales DESC;
 
 Which small business customer had the highest sales?
 
-Dennis Kane made the highest sales among small business customers
+### Dennis Kane made the highest sales among small business customers
 
 SELECT TOP 1 Customer_Segment, Customer_Name, SUM(Sales) AS TotalSales
 FROM [dbo].[KMS Sql Case Study]
@@ -149,7 +149,7 @@ ORDER BY TotalSales desc
 
 Which Corporate Customer placed the most number of orders in 2009 – 2012?
 
-Adam Hart placed the most orders between 2009-2012.
+### Adam Hart placed the most orders between 2009-2012.
 
 SELECT TOP 1 Customer_Name, COUNT(DISTINCT Order_ID) AS Number_of_Orders
 FROM [dbo].[KMS Sql Case Study]
@@ -162,7 +162,7 @@ ORDER BY Number_of_Orders DESC;
 ## Question 9:
 Which consumer customer was the most profitable one?
 
-Emily Phan was the most profitable customer.
+### Emily Phan was the most profitable customer.
 
 SELECT TOP 1
 [Customer_Name], SUM(Profit) AS Total_Profit
@@ -174,7 +174,7 @@ ORDER BY Total_Profit DESC;
 ## Question 10:
 Which customer returned items, and what segment do they belong to?
 
-Customers returned items in all segments but most especially in corporate and small business
+### Customers returned items in all segments but most especially in corporate and small business
 
 SELECT DISTINCT TOP 10 o.[Order_ID], o.[Customer_Name], o.[Customer_Segment]
 FROM [dbo].[KMS Sql Case Study] o
@@ -195,7 +195,7 @@ FROM [dbo].[KMS Sql Case Study]
 GROUP BY [Order_Priority], [Ship_Mode]
 ORDER BY [Order_Priority], [Ship_Mode] DESC;
 
-Idon't think the company spent apprioipriately because customers take proirity very important and could impact their next buy.
+### I don't think the company spent apprioipriately because customers take proirity very important and could impact their next buy.
 
 
 
