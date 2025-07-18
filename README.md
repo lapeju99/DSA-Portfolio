@@ -18,23 +18,25 @@ This Data Analysis project ais to generate insights into sales performance of KM
 
 ## Questions
 
-1. Top Product Category by Sales
+## 1. Top Product Category by Sales
 Product Category with the Highest Sales:
 Based on total sales aggregated from Row_ID, the Technology category generated the highest revenue.
 
-SQL Insight:
+
+## SQL Insight:
 
 SELECT Product_Category, SUM(DISTINCT Row_ID) AS TotalSales
 FROM [dbo].[KMS Sql Case Study]
 GROUP BY Product_Category
 ORDER BY TotalSales DESC;
 
-Question 2
-2. Top & Bottom 3 Regions by Sales
-Top 3 Regions by Sales:
+
+## Question 2  Top & Bottom 3 Regions by Sales
+
+### Top 3 Regions by Sales:
 Ontario, Alberta, and Quebec led in total revenue.
 
-Bottom 3 Regions by Sales:
+### Bottom 3 Regions by Sales:
 Manitoba, Nova Scotia, and British Columbia recorded the lowest sales.
 
 
@@ -50,7 +52,7 @@ GROUP BY Region
 ORDER BY TotalSales ASC;
 
 
-Question 3
+## Question 3
  Appliance Sales in Ontario
 Ontario saw significant sales in the Appliances sub-category within the Technology category.
 
@@ -62,27 +64,29 @@ ORDER BY TotalSales DESC;
 
 
 
-Question 4 
+## Question 4 
 Select top 10 Customer_Name, SUM(Sales) AS TotalSales
 from [dbo].[KMS Sql Case Study]
 group by Customer_Name
 order by TotalSales asc;
 
 
- Question 5
+
+
+## Question 5
 
 KMS incurred the most shipping cost using which shipping method?
 
-5. Most Expensive Shipping Method
-Delivery Truck incurred the highest shipping cost overall.
+Most Expensive Shipping Method
+## Delivery Truck incurred the highest shipping cost overall.
 
 SELECT TOP 5 Ship_Mode, SUM(Shipping_Cost) AS TotalShipping_Cost
 FROM [dbo].[KMS Sql Case Study]
 GROUP BY Ship_Mode
 ORDER BY TotalShipping_Cost DESC;
 
-question 6:
-6. Who are the most valuable customers, and what products or services do they typically 
+## Question 6:
+Who are the most valuable customers, and what products or services do they typically 
 purchase? 
 Top customers are those with the highest cumulative spend.
 
@@ -104,7 +108,7 @@ GROUP BY [Customer_Name], [Product_Name]
 ORDER BY Total_Sales DESC;
 
 
-Question 7
+## Question 7
 
 Which small business customer had the highest sales?
 
@@ -115,7 +119,7 @@ GROUP BY Customer_Segment, Customer_Name
 ORDER BY TotalSales desc
 
 
-Question 8:
+## Question 8:
 
 Which Corporate Customer placed the most number of orders in 2009 – 2012?
 
@@ -126,7 +130,8 @@ AND Order_Date BETWEEN '2009-01-01' AND '2012-12-31'
 GROUP BY Customer_Name
 ORDER BY Number_of_Orders DESC;
 
-Question 9:
+
+## Question 9:
 Which consumer customer was the most profitable one?
 
 SELECT TOP 1
@@ -136,7 +141,8 @@ WHERE [Customer_Segment] = 'Consumer'
 GROUP BY [Customer_Name]
 ORDER BY Total_Profit DESC;
 
-Question 10:Which customer returned items, and what segment do they belong to?
+## Question 10:
+Which customer returned items, and what segment do they belong to?
 
 SELECT DISTINCT TOP 10 o.[Order_ID], o.[Customer_Name], o.[Customer_Segment]
 FROM [dbo].[KMS Sql Case Study] o
@@ -144,7 +150,8 @@ JOIN [dbo].[OrderStatus] r
 ON o.[Order_ID] = r.[Order_ID]
 WHERE r.Status = 'Returned';
 
-11. If the delivery truck is the most economical but the slowest shipping method and 
+## Question 11:
+If the delivery truck is the most economical but the slowest shipping method and 
 Express Air is the fastest but the most expensive one, do you think the company 
 appropriately spent shipping costs based on the Order Priority? Explain your answer
 
@@ -157,6 +164,11 @@ GROUP BY [Order_Priority], [Ship_Mode]
 ORDER BY [Order_Priority], [Ship_Mode] DESC;
 
 Idon't think the company spent apprioipriately because customers take proirity very important and could impact their next buy.
+
+
+
+
+
 
 
 
