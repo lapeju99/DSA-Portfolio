@@ -137,3 +137,77 @@ GROUP BY [Order_Priority], [Ship_Mode]
 ORDER BY [Order_Priority], [Ship_Mode] DESC;
 
 Idon't think the company spent apprioipriately because customers take proirity very important and could impact their next buy.
+
+
+
+
+
+# 🧠 Palmoria Group HR Analytics Report
+
+This Power BI project explores HR data from Palmoria Group — a Nigerian manufacturing company — with the goal of uncovering insights related to gender representation, salary compliance, performance ratings, and bonus allocation. The analysis leverages real organizational data to support strategic decision-making in Human Resources.
+
+
+## 📌 Project Objectives
+
+- Identify and address gender disparities in employment distribution.
+- Evaluate compliance with minimum salary regulations.
+- Analyze bonus distribution using performance ratings and department-level rules.
+- Calculate average ratings by gender and department.
+- Determine the total financial commitment to employees, including bonuses.
+
+
+## 📊 Key Analysis Areas
+
+### 1. **Gender Distribution by Region & Department**
+- Visual breakdown of employees by gender across regions and departments.
+- Highlighted departments with gender imbalance.
+
+### 2. **Performance Ratings Analysis**
+- Comparison of average ratings between male, female, and non-disclosed genders.
+- Performance trends across departments and gender categories.
+
+### 3. **Salary Compliance**
+- Identified employees below the ₦90,000 minimum salary threshold.
+- Summary by department and region for salary violation analysis.
+
+### 4. **Bonus Allocation Model**
+- Bonus calculated using department-based percentages tied to performance ratings.
+- DAX measures used to compute accurate bonuses per employee.
+- Separate visuals show bonus trends by gender and department.
+
+### 5. **Total Compensation Report**
+- A complete view of employee compensation (Salary + Bonus).
+- Aggregate views:
+  - Per employee
+  - Per region
+  - Company-wide
+ 
+
+## 💻 Tools & Technologies
+
+- **Microsoft Power BI** (Data Modeling, DAX, Visualizations)
+- **Power Query** (Data Cleaning and Transformation)
+- **DAX Measures** for custom calculations
+- **GitHub** (project hosting)
+
+
+  ## 📁 Files Included
+
+| File Name                              | Description                             |
+|----------------------------------------|-----------------------------------------|
+| `Palmoria Report.pbix`                 | Power BI report                         |
+| `Palmoria Group emp-data.csv`          | Employee details including salary       |
+| `Palmoria Group Bonus Rules.xlsx`      | Bonus rules per department & rating     |
+| `README.md`                            | Project documentation                   |
+
+
+## 📸  Visualizations
+
+## 1. What is the gender distribution in the organization? Distil to regions and
+departments?
+
+
+
+
+
+
