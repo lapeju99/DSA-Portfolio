@@ -85,6 +85,11 @@ ORDER BY TotalSales DESC;
 Advise the management of KMS on what to do to increase the revenue from the bottom
 10 customers
 
+Answer: 
+1. They should buy in large quantities to make more profits
+2. The Shipping cost is high for thee customers and should therefore use cheaper shipping options
+3. They should avoid high discounts on low- quality orders.
+
 Select top 10 Customer_Name, SUM(Sales) AS TotalSales
 from [dbo].[KMS Sql Case Study]
 group by Customer_Name
